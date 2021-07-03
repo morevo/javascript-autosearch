@@ -17,17 +17,21 @@ search.addEventListener("input", () => {
     async function getFetchDatas() {
       await delay(3000);
       let response = await fetch(
+        /* Search match words */
         `https://www.googleapis.com/books/v1/volumes?q=${search.value}`
       );
+      /* If 200-299, take response and add it in result */
       if (response.ok) {
         let resultResponse = await response.json();
         result.textContent = JSON.stringify(resultResponse);
+        /* If 0 matches */
         if (result.textContent.length === 39) {
           result.textContent = "No one match";
         }
       }
     }
     getFetchDatas();
+    /* If input is clear */
   } else if (search.value.length === 0) {
     result.textContent = "";
   }
