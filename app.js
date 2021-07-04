@@ -26,7 +26,7 @@ search.addEventListener("input", () => {
         result.textContent = JSON.stringify(resultResponse);
         /* If 0 matches */
         if (result.textContent.length === 39) {
-          result.textContent = "No one match";
+          result.textContent = "No matches";
         }
       }
     }
